@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Diketahui barisan `3, 5, 7, 9, 11, 13, 15, ...` Berapa baris ke-7 ?</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="diketahui-barisan-3-5-7-9-11-13-15--berapa-baris-ke-7-">Diketahui barisan <code>3, 5, 7, 9, 11, 13, 15, ...</code> Berapa baris ke-7 ?</h1>
+<p>Langkah paling mudah, yaitu tinggal pake coret<sup>2</sup> aja kan... Catat! &quot;Solusi 1&quot;. Kedua, pake rumus barisan... &quot;Solusi 2&quot;.</p>
+<h2 id="solusi-1">Solusi 1:</h2>
+<pre><code><code><div> +2 +2 +2 +2
+3, 5, 7, 9, ...
+</div></code></code></pre>
+<h2 id="solusi-2">Solusi 2:</h2>
+<pre><code><code><div>a + (( n-1 ) b )
+</div></code></code></pre>
+<p><strong>Lalu bagaimana solusi komputernya?</strong> Siapp... biasakan selalu pakai coret<sup>2</sup> dulu sebelum bikin program ya... OK?</p>
+<h2 id="breakdown-solusi-1">Breakdown solusi 1</h2>
+<pre><code><code><div>
+Pertama, tentukan nilai pertama atau &quot;a&quot; lalu buat variabel &quot;hasil&quot; dan tetapkan &quot;hasil&quot; = &quot;a&quot;, tambah-tambahkan &quot;hasil&quot; dengan &quot;beda&quot; sampai tercapai &quot;hasil&quot; ke-sekian.
+
+</div></code></code></pre>
+<h2 id="koding-solusi-1">Koding solusi 1</h2>
+<p>Masuk ke koding nih mas... Dibuat sesuai breakdown ya...</p>
+<p><em>koding tersedia di folder <code>snippet</code></em></p>
+<pre><code class="language-pascal"><div>
+<span class="hljs-keyword">Var</span>
+  a, beda, bariske, hasil, i : integer;
+
+<span class="hljs-keyword">Begin</span>
+
+  a := <span class="hljs-number">3</span>;
+  beda := <span class="hljs-number">2</span>;
+  bariske := <span class="hljs-number">7</span>;
+
+  hasil := a;
+
+  <span class="hljs-keyword">For</span> i:= <span class="hljs-number">2</span> <span class="hljs-keyword">To</span> bariske <span class="hljs-keyword">Do</span>
+    hasil := hasil + beda;
+
+  writeln(hasil);
+
+<span class="hljs-keyword">End</span>.
+
+</div></code></pre>
+<h3 id="penjelasan">Penjelasan</h3>
+<ol>
+<li>Deklarasikan variabel.</li>
+<li>Tetapkan &quot;a&quot;, &quot;beda&quot;, dan &quot;bariske&quot; yg ingin dicapai.</li>
+<li>Jadikan &quot;hasil&quot; = &quot;a&quot;.</li>
+<li>Tambah<sup>2</sup>kan &quot;hasil&quot; hingga tercapai &quot;bariske&quot;.</li>
+</ol>
+<h3 id="kenapasih">Kenapasih?</h3>
+<h4 id="kok-i-dimulai-dari-2-bukan-dari-0-atau-1"><strong>Kok &quot;i&quot; dimulai dari 2 bukan dari 0 atau 1?</strong></h4>
+<p>Karena enggak ada &quot;hasil&quot; ke-0. Dan karena <em>&quot;hasil&quot; ke 1 = &quot;a&quot;</em> sudah ditetapkan di langkah ke-3 maka &quot;hasil ke-1 sudah dihitung. Lanjut ke &quot;hasil&quot; ke-2.</p>
+<h4 id="memangnya-for--to-do-cara-kerjanya-gimana"><strong>Memangnya <code>For := To Do</code> cara kerjanya gimana?</strong></h4>
+<p><img src="file:////home/hanifan/Downloads/git/pascal-learning/figures/howForDoWorks.gif" alt="How FOR works image"></p>
+<h2 id="breakdown-solusi-2">Breakdown solusi 2</h2>
+<pre><code><code><div>Gampang... buat rumus, masukin angka, jadi deh...
+</div></code></code></pre>
+<h2 id="koding-solusi-2">Koding solusi 2</h2>
+<pre><code class="language-pascal"><div>
+<span class="hljs-keyword">Var</span>
+  a, beda, bariske, hasil : integer;
+
+<span class="hljs-keyword">Begin</span>
+
+  a := <span class="hljs-number">3</span>;
+  BEDA := <span class="hljs-number">2</span>;
+  baRisKe := <span class="hljs-number">7</span>;
+
+  <span class="hljs-comment">{ Rumusnya: a + (( n-1 ) b) }</span>
+
+  hasil := a + (( bariske - <span class="hljs-number">1</span>) * beda);
+
+  writeln(hasil);
+
+<span class="hljs-keyword">End</span>.
+
+
+<span class="hljs-comment">(* Tanda "{}" dipakai untuk buat komen sebaris,
+  sedangkan tanda kurung bintang yg dipakai di
+  paragraf ini untuk buat komen berbaris-baris. *)</span>
+
+</div></code></pre>
+<h3 id="kenapasih-1">Kenapasih?</h3>
+<h4 id="kok-nama-variabelnya-gede-kecil"><strong>Kok nama variabelnya gede-kecil?</strong></h4>
+<blockquote>
+<p>Pascal is a case non-sensitive language, which means you can write your variables, functions and procedure in either case. Like variables A_Variable, a_variable and A_VARIABLE have same meaning in Pascal.</p>
+</blockquote>
+<p>Paham kan... 😉</p>
+<h2 id="apa-yg-sudah-dipelajari">Apa yg sudah dipelajari</h2>
+<ul>
+<li>
+<p>Pascal - Environment Setup <span style="color:green">✔</span> <a href="https://youtu.be/wS_sfxseaaM">[Link materi 1]</a></p>
+</li>
+<li>
+<p>Pascal - Program Structure <span style="color:orange">✔ (partial)</span></p>
+</li>
+<li>
+<p>Pascal - Basic Syntax</p>
+<ul>
+<li>
+<p>Variables <span style="color:orange">✔ (partial)</span></p>
+</li>
+<li>
+<p>Comments <span style="color:green">✔</span></p>
+</li>
+<li>
+<p>Case Sensitivity <span style="color:green">✔</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pascal - Variable Types</p>
+<ul>
+<li>Basic Variables in Pascal <span style="color:orange">✔ (partial)</span></li>
+</ul>
+</li>
+<li>
+<p>Pascal - Operators</p>
+<ul>
+<li>Arithmetic Operators <span style="color:orange">✔ (partial)</span></li>
+</ul>
+</li>
+<li>
+<p>Pascal - Loops</p>
+<ul>
+<li>FOR-DO loop <span style="color:green">✔</span></li>
+<li></li>
+</ul>
+</li>
+</ul>
+
+    </body>
+    </html>
